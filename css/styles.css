@@ -117,8 +117,8 @@ button {
 .final-cta h2 {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 2.7vw, 2.55rem);
-  line-height: 1.16;
+  font-size: clamp(1.55rem, 2.2vw, 2.2rem);
+  line-height: 1.22;
   letter-spacing: 0;
 }
 
@@ -287,19 +287,19 @@ button {
 }
 
 .hero h1 {
-  max-width: 760px;
+  max-width: 640px;
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 4.1vw, 4rem);
-  line-height: 1.07;
+  font-size: clamp(2rem, 3.15vw, 3.15rem);
+  line-height: 1.14;
   letter-spacing: 0;
 }
 
 .hero__subheadline {
-  max-width: 660px;
+  max-width: 590px;
   margin: 24px 0 0;
   color: var(--muted);
-  font-size: clamp(1.07rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 1.45vw, 1.12rem);
 }
 
 .hero__actions {
@@ -408,7 +408,7 @@ button {
   display: block;
   margin-top: 5px;
   font-family: var(--font-heading);
-  font-size: clamp(1.55rem, 2.7vw, 2.25rem);
+  font-size: clamp(1.35rem, 2.1vw, 1.9rem);
   line-height: 1.1;
 }
 
@@ -429,7 +429,7 @@ button {
 .reward-card__reward strong {
   color: var(--primary);
   font-family: var(--font-heading);
-  font-size: clamp(1.95rem, 3.5vw, 2.9rem);
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
   line-height: 1;
 }
 
@@ -773,7 +773,7 @@ button {
 }
 
 .earning-card h3 {
-  font-size: 1.65rem;
+  font-size: 1.4rem;
 }
 
 .earning-card dl,
@@ -1048,7 +1048,7 @@ button {
   }
 
   .hero h1 {
-    font-size: clamp(2rem, 8.6vw, 3rem);
+    font-size: clamp(1.75rem, 7vw, 2.45rem);
   }
 
   .hero__actions,
