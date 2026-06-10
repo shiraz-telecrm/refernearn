@@ -233,6 +233,37 @@ p { font-size: 17px; line-height: 1.75; color: var(--grey); }
   color: var(--v900);
   margin-bottom: 18px;
 }
+.form-stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.form-stepper__circle {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1.5px solid var(--v200);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--v500);
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 14px;
+}
+.form-stepper__line {
+  flex: 1;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--v100);
+}
+.hero-referral-form[data-current-step="1"] .form-stepper__circle[data-step-indicator="1"],
+.hero-referral-form[data-current-step="2"] .form-stepper__circle[data-step-indicator="2"] {
+  border-color: var(--v500);
+  background: var(--v500);
+  color: #fff;
+}
 .hero-referral-form fieldset {
   border: 0;
   margin: 0;
@@ -283,6 +314,11 @@ p { font-size: 17px; line-height: 1.75; color: var(--grey); }
   border: 1.5px solid var(--border);
   border-radius: var(--radius-btn);
   padding: 11px 12px;
+  transition: background .15s ease, border-color .15s ease;
+}
+.radio-group label:has(input:checked) {
+  border-color: var(--v200);
+  background: var(--v50);
 }
 .radio-group label span {
   margin: 0;
@@ -656,7 +692,7 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav__cta">
-      <a href="https://telecrm.in/demo-form-affiliate" class="btn-primary">Refer now →</a>
+      <a href="#referral-form" class="btn-primary">Refer now →</a>
     </div>
   </div>
 </nav>
@@ -671,7 +707,7 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
       <h1>Love telecrm?<br><em>Get paid to say so.</em></h1>
       <p class="lead">Introduce any business to telecrm and earn 10% of their first payment — as cash in your bank or credits on your account. One referral. Your choice.</p>
       <div class="ctas">
-        <a href="https://telecrm.in/demo-form-affiliate" class="btn-primary">Refer a business →</a>
+        <a href="#referral-form" class="btn-primary">Refer a business →</a>
         <a href="#how" class="btn-ghost">See how it works</a>
       </div>
       <div class="hero__trust">
@@ -684,9 +720,15 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
     </div>
 
     <div class="hero__visual">
-      <form class="hero-referral-form" data-index2-referral-form>
+      <form class="hero-referral-form" id="referral-form" data-current-step="1" data-index2-referral-form>
+        <div class="form-stepper" aria-label="Referral form progress">
+          <span class="form-stepper__circle" data-step-indicator="1">1</span>
+          <span class="form-stepper__line"></span>
+          <span class="form-stepper__circle" data-step-indicator="2">2</span>
+        </div>
+
         <fieldset class="form-step active" data-form-step="1">
-          <legend>Your Details</legend>
+          <legend>Referral Form</legend>
 
           <div class="reward-choice">
             <div class="reward-choice__label">Preferred Reward</div>
@@ -1068,7 +1110,7 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
   <div class="eyebrow">Ready to earn?</div>
   <h2>Refer a business.<br><em>Get rewarded.</em></h2>
   <p>Share a name. We handle everything else. Your commission lands in your bank — or cuts your next bill.</p>
-  <a href="https://telecrm.in/demo-form-affiliate" class="btn-cta-white">
+  <a href="#referral-form" class="btn-cta-white">
     Submit a referral →
   </a>
   <div class="final-cta__contact">
@@ -1103,6 +1145,7 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
 
   function showStep(step) {
     const isFirstStep = step === 1;
+    form.dataset.currentStep = String(step);
     stepOne.classList.toggle('active', isFirstStep);
     stepTwo.classList.toggle('active', !isFirstStep);
     stepOne.querySelectorAll('input').forEach(field => { field.disabled = !isFirstStep; });
