@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -328,51 +328,65 @@
         </div>
 
         <form class="referral-form reveal" data-referral-form>
-          <div class="form-grid">
-            <label>
-              <span>Your Name</span>
-              <input type="text" name="yourName" autocomplete="name" required>
-            </label>
-            <label>
-              <span>Mobile Number</span>
-              <input type="tel" name="mobileNumber" autocomplete="tel" inputmode="tel" required>
-            </label>
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" autocomplete="email" required>
-            </label>
-            <label>
-              <span>TeleCRM Account Email</span>
-              <input type="email" name="accountEmail" autocomplete="email" required>
-            </label>
-            <label>
-              <span>Referral Company Name</span>
-              <input type="text" name="companyName" required>
-            </label>
-            <label>
-              <span>Referral Contact Person</span>
-              <input type="text" name="contactPerson" required>
-            </label>
-            <label>
-              <span>Referral Phone</span>
-              <input type="tel" name="referralPhone" inputmode="tel" required>
-            </label>
-            <label>
-              <span>Referral Email</span>
-              <input type="email" name="referralEmail" required>
-            </label>
-          </div>
+          <fieldset class="form-section">
+            <legend>Your Details</legend>
 
-          <fieldset>
-            <legend>Preferred Reward</legend>
-            <div class="radio-group">
+            <div class="reward-choice">
+              <p>Preferred Reward</p>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="preferredReward" value="Cash" checked>
+                  <span>Cash</span>
+                </label>
+                <label>
+                  <input type="radio" name="preferredReward" value="Account Credits">
+                  <span>Account Credits</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-grid">
               <label>
-                <input type="radio" name="preferredReward" value="Cash" checked>
-                <span>Cash</span>
+                <span>Your Name</span>
+                <input type="text" name="yourName" autocomplete="name" required>
               </label>
               <label>
-                <input type="radio" name="preferredReward" value="Account Credits">
-                <span>Account Credits</span>
+                <span>Mobile Number</span>
+                <input type="tel" name="mobileNumber" autocomplete="tel" inputmode="tel" required>
+              </label>
+              <label>
+                <span>Your Email</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label>
+                <span>TeleCRM Account Name</span>
+                <input type="text" name="accountName" autocomplete="organization" required>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend>Referral Details</legend>
+            <div class="form-grid">
+              <label>
+                <span>Referral Company Name</span>
+                <input type="text" name="companyName" required>
+              </label>
+              <label>
+                <span>Referral Contact Person</span>
+                <input type="text" name="contactPerson" required>
+              </label>
+              <label>
+                <span>Referral Phone</span>
+                <input type="tel" name="referralPhone" inputmode="tel" required>
+              </label>
+              <label>
+                <span>Referral Email</span>
+                <input type="email" name="referralEmail" required>
+              </label>
+              <label>
+                <span>Referral Industry</span>
+                <input type="text" name="referralIndustry" required>
               </label>
             </div>
           </fieldset>

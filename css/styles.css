@@ -885,7 +885,7 @@ button {
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
@@ -916,9 +916,31 @@ button {
 }
 
 .referral-form fieldset {
-  margin: 22px 0;
+  margin: 0;
   border: 0;
   padding: 0;
+}
+
+.form-section + .form-section {
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  padding-top: 26px;
+}
+
+.form-section legend {
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+}
+
+.reward-choice {
+  margin-bottom: 18px;
+}
+
+.reward-choice p {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-weight: 800;
 }
 
 .radio-group {
@@ -1087,7 +1109,6 @@ button {
 
   .hero__actions,
   .trust-list,
-  .form-grid,
   .radio-group {
     grid-template-columns: 1fr;
   }
