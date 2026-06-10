@@ -217,65 +217,108 @@ p { font-size: 17px; line-height: 1.75; color: var(--grey); }
   justify-self: end;
   width: 100%; max-width: 480px;
 }
-.reward-card {
-  background: var(--v900);
-  border-radius: 20px;
-  padding: 32px;
-  position: relative;
-  overflow: hidden;
+.hero-referral-form {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 24px 70px rgba(31, 24, 68, .14);
+  padding: 26px;
 }
-.reward-card::before {
-  content: '';
-  position: absolute; top: -60px; right: -60px;
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(245,138,31,.15) 0%, transparent 65%);
-  pointer-events: none;
+.form-step { display: none; }
+.form-step.active { display: block; }
+.form-step legend {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--v900);
+  margin-bottom: 18px;
 }
-.reward-card__label {
-  font-family: var(--font-head); font-weight: 700; font-size: 11px;
-  text-transform: uppercase; letter-spacing: 0.09em;
-  color: var(--orange); margin-bottom: 12px; position: relative;
+.hero-referral-form fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
-.reward-card__amount {
-  font-family: var(--font-head); font-weight: 900;
-  font-size: 64px; color: #fff; line-height: 1;
-  letter-spacing: -2px; margin-bottom: 4px; position: relative;
+.hero-referral-form label span,
+.reward-choice__label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--v900);
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 13px;
 }
-.reward-card__amount span { font-size: 36px; letter-spacing: -1px; color: var(--orange); }
-.reward-card__sub {
-  font-size: 14px; color: var(--v200); margin-bottom: 28px; position: relative;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
-.reward-toggle {
-  display: flex; gap: 10px; margin-bottom: 24px; position: relative;
+.hero-referral-form input[type="text"],
+.hero-referral-form input[type="tel"],
+.hero-referral-form input[type="email"] {
+  width: 100%;
+  min-height: 46px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-btn);
+  background: #fff;
+  color: var(--v900);
+  padding: 11px 12px;
+  font: inherit;
 }
-.reward-toggle__btn {
-  flex: 1; padding: 12px 16px;
-  border-radius: 10px; border: 1.5px solid transparent;
-  font-family: var(--font-head); font-weight: 700; font-size: 14px;
-  cursor: pointer; transition: all .2s ease;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
+.hero-referral-form input:focus {
+  border-color: var(--v500);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(79,56,162,.10);
 }
-.reward-toggle__btn--cash {
-  background: rgba(245,138,31,.15); border-color: rgba(245,138,31,.4); color: var(--orange);
+.reward-choice { margin-bottom: 14px; }
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
-.reward-toggle__btn--credits {
-  background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.6);
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 11px 12px;
 }
-.reward-toggle__btn--cash.active {
-  background: var(--orange); border-color: var(--orange); color: #fff;
+.radio-group label span {
+  margin: 0;
 }
-.reward-toggle__btn--credits.active {
-  background: var(--v500); border-color: var(--v500); color: #fff;
+.radio-group input {
+  accent-color: var(--v500);
 }
-.reward-card__example {
-  background: rgba(255,255,255,.06); border-radius: 10px; padding: 14px 16px;
-  font-size: 13px; color: var(--v200); line-height: 1.6; position: relative;
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
 }
-.reward-card__example strong { color: #fff; }
+.form-actions .btn-primary,
+.form-actions .btn-ghost {
+  flex: 1;
+  justify-content: center;
+}
+.form-success {
+  margin: 14px 0 0;
+  border-radius: var(--radius-btn);
+  background: #ECFDF3;
+  color: #126335;
+  padding: 12px 14px;
+  font-weight: 700;
+  font-size: 14px;
+}
 
 @media (max-width: 960px) {
   .hero__inner { grid-template-columns: 1fr; }
   .hero__visual { justify-self: start; max-width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .hero-referral-form { padding: 20px; }
+  .radio-group,
+  .form-actions { grid-template-columns: 1fr; display: grid; }
 }
 
 /* ============== HIGHLIGHTS BAR ============== */
@@ -641,24 +684,82 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
     </div>
 
     <div class="hero__visual">
-      <div class="reward-card">
-        <div class="reward-card__label">Your reward</div>
-        <div class="reward-card__amount"><span>10%</span></div>
-        <div class="reward-card__sub">of your referral's first payment, credited to you</div>
-        <div class="reward-toggle">
-          <button class="reward-toggle__btn reward-toggle__btn--cash active" onclick="toggleReward('cash')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            Cash to bank
-          </button>
-          <button class="reward-toggle__btn reward-toggle__btn--credits" onclick="toggleReward('credits')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            Account credits
-          </button>
-        </div>
-        <div class="reward-card__example" id="rewardExample">
-          <strong>Example:</strong> You refer a 10-user team on the ₹799/user/month plan. Their first payment = <strong>₹95,880/year</strong>. You earn <strong>₹9,588 cash</strong> transferred to your bank.
-        </div>
-      </div>
+      <form class="hero-referral-form" data-index2-referral-form>
+        <fieldset class="form-step active" data-form-step="1">
+          <legend>Your Details</legend>
+
+          <div class="reward-choice">
+            <div class="reward-choice__label">Preferred Reward</div>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="preferredReward" value="Cash" checked>
+                <span>Cash</span>
+              </label>
+              <label>
+                <input type="radio" name="preferredReward" value="Account Credits">
+                <span>Account Credits</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span>Your Name</span>
+              <input type="text" name="yourName" autocomplete="name" required>
+            </label>
+            <label>
+              <span>Mobile Number</span>
+              <input type="tel" name="mobileNumber" autocomplete="tel" inputmode="tel" required>
+            </label>
+            <label>
+              <span>Your Email</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label>
+              <span>TeleCRM Account Name</span>
+              <input type="text" name="accountName" autocomplete="organization" required>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-primary" type="button" data-form-next>Continue</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-step" data-form-step="2">
+          <legend>Referral Details</legend>
+
+          <div class="form-grid">
+            <label>
+              <span>Referral Company Name</span>
+              <input type="text" name="companyName" required>
+            </label>
+            <label>
+              <span>Referral Contact Person</span>
+              <input type="text" name="contactPerson" required>
+            </label>
+            <label>
+              <span>Referral Phone</span>
+              <input type="tel" name="referralPhone" inputmode="tel" required>
+            </label>
+            <label>
+              <span>Referral Email</span>
+              <input type="email" name="referralEmail" required>
+            </label>
+            <label>
+              <span>Referral Industry</span>
+              <input type="text" name="referralIndustry" required>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-ghost" type="button" data-form-back>Back</button>
+            <button class="btn-primary" type="submit">Submit</button>
+          </div>
+        </fieldset>
+
+        <p class="form-success" role="status" aria-live="polite" tabindex="-1" data-form-success hidden>Thank you. Your referral has been captured and our team will follow up soon.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -991,18 +1092,52 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
 
 <!-- ============== SCRIPTS ============== -->
 <script>
-// Reward toggle
-const examples = {
-  cash: 'Example: You refer a 10-user team on the ₹799/user/month plan. Their first payment = <strong>₹95,880/year</strong>. You earn <strong>₹9,588 cash</strong> transferred to your bank.',
-  credits: 'Example: You refer a 10-user team on the ₹799/user/month plan. Their first payment = <strong>₹95,880/year</strong>. You earn <strong>₹9,588 as account credits</strong> — roughly 4 months free on a 20-user plan.'
-};
-function toggleReward(type) {
-  document.querySelectorAll('.reward-toggle__btn').forEach(b => {
-    b.classList.remove('active');
-    if (b.classList.contains('reward-toggle__btn--' + type)) b.classList.add('active');
+// Hero referral form
+(function () {
+  const form = document.querySelector('[data-index2-referral-form]');
+  if (!form) return;
+
+  const stepOne = form.querySelector('[data-form-step="1"]');
+  const stepTwo = form.querySelector('[data-form-step="2"]');
+  const success = form.querySelector('[data-form-success]');
+
+  function showStep(step) {
+    const isFirstStep = step === 1;
+    stepOne.classList.toggle('active', isFirstStep);
+    stepTwo.classList.toggle('active', !isFirstStep);
+    stepOne.querySelectorAll('input').forEach(field => { field.disabled = !isFirstStep; });
+    stepTwo.querySelectorAll('input').forEach(field => { field.disabled = isFirstStep; });
+    success.hidden = true;
+  }
+
+  showStep(1);
+
+  form.querySelector('[data-form-next]').addEventListener('click', function () {
+    const fields = stepOne.querySelectorAll('input[required]');
+    const invalid = Array.from(fields).find(field => !field.checkValidity());
+    if (invalid) {
+      invalid.reportValidity();
+      return;
+    }
+    showStep(2);
   });
-  document.getElementById('rewardExample').innerHTML = '<strong>Example:</strong> ' + examples[type].replace('<strong>Example:</strong> ', '');
-}
+
+  form.querySelector('[data-form-back]').addEventListener('click', function () {
+    showStep(1);
+  });
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    form.reset();
+    showStep(1);
+    success.hidden = false;
+    success.focus();
+  });
+})();
 
 // Calculator
 (function () {
