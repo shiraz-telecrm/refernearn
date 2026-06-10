@@ -534,6 +534,28 @@ summary::after {
 details[open] summary::after { content: '−'; }
 details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
 
+/* ============== TERMS ============== */
+.terms-intro {
+  max-width: 780px; margin: 0 auto 28px;
+  color: var(--grey); text-align: center; font-size: 15px;
+}
+.terms-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  max-width: 980px; margin: 0 auto;
+}
+.terms-card {
+  border: 1.5px solid var(--border); border-radius: var(--radius-card);
+  background: #fff; padding: 20px;
+}
+.terms-card h3 {
+  font-size: 16px; margin-bottom: 8px;
+}
+.terms-card p {
+  font-size: 14px; line-height: 1.65; margin: 0;
+}
+
+@media (max-width: 800px) { .terms-grid { grid-template-columns: 1fr; } }
+
 /* ============== FINAL CTA ============== */
 .final-cta {
   background: linear-gradient(135deg, var(--v700) 0%, var(--v900) 100%);
@@ -884,6 +906,62 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
   </div>
 </section>
 
+<!-- ============== TERMS ============== -->
+<section id="terms" class="alt">
+  <div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Terms &amp; Conditions</span>
+      <h2>Simple rules for <em>eligible rewards</em></h2>
+      <p>Referral rewards are subject to TeleCRM verification and program terms.</p>
+    </div>
+
+    <p class="terms-intro">Rewards apply only to eligible new customers and are calculated as 10% of the first payment received by TeleCRM, excluding taxes and adjustments.</p>
+
+    <div class="terms-grid">
+      <div class="terms-card">
+        <h3>Eligibility</h3>
+        <p>The program is open to existing TeleCRM customers with an active account. Employees, partners, vendors, agencies, and resellers may be excluded unless approved in writing.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Valid Referrals</h3>
+        <p>A referral must be a new business that is not already a TeleCRM customer, active lead, demo prospect, or in discussion with the TeleCRM sales team.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Reward Calculation</h3>
+        <p>The reward is 10% of the referred customer's first payment received by TeleCRM, excluding taxes, discounts, refunds, payment gateway charges, and other deductions.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Payout Options</h3>
+        <p>Rewards may be paid as cash or issued as TeleCRM account credits, based on the selected preference, eligibility verification, and TeleCRM approval.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Payout Timing</h3>
+        <p>Rewards become payable only after the referred business becomes a paid customer and TeleCRM receives the first payment. Eligible rewards are processed after internal verification.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Cancellations</h3>
+        <p>If the referred customer cancels, receives a refund, disputes the payment, or fails verification, the referral reward may be cancelled or reversed.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Duplicate Referrals</h3>
+        <p>If multiple people refer the same business, the reward will generally be assigned to the first eligible referrer recorded by TeleCRM.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Compliance</h3>
+        <p>Applicable taxes, TDS, GST, or statutory deductions may apply. Referrers may need to provide PAN, GST details, bank details, invoice, or other documents before payout.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Misuse</h3>
+        <p>TeleCRM may reject referrals, withhold rewards, suspend participation, or recover paid rewards in cases of fraud, self-referrals, fake businesses, misleading information, or abuse.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Program Changes</h3>
+        <p>TeleCRM may modify, pause, or discontinue the referral program, reward percentage, eligibility rules, or payout method at any time. TeleCRM's decision will be final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============== FINAL CTA ============== -->
 <section id="apply" class="final-cta">
   <div class="eyebrow">Ready to earn?</div>
@@ -903,7 +981,7 @@ details p { margin-top: 14px; font-size: 15px; line-height: 1.75; }
     <div class="footer__brand">telecrm</div>
     <div class="footer__links">
       <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+      <a href="#terms">Terms</a>
       <a href="#">Referral Agreement</a>
       <a href="mailto:referrals@telecrm.in">Contact</a>
     </div>

@@ -834,6 +834,40 @@ button {
   color: var(--muted);
 }
 
+.terms-section .section-heading {
+  max-width: 820px;
+}
+
+.terms-intro {
+  margin: 16px 0 0;
+  color: var(--muted);
+}
+
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.terms-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 18px;
+}
+
+.terms-card h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+}
+
+.terms-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .form-shell {
   display: grid;
   grid-template-columns: minmax(260px, 0.68fr) minmax(0, 1fr);
@@ -1069,7 +1103,8 @@ button {
   .feature-grid,
   .industry-grid,
   .timeline,
-  .earnings-grid {
+  .earnings-grid,
+  .terms-grid {
     grid-template-columns: 1fr;
   }
 
